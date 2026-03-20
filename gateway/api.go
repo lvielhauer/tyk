@@ -3618,6 +3618,38 @@ func ctxGetRequestStatus(r *http.Request) (stat RequestStatus) {
 	return
 }
 
+func ctxSetMCPMethod(r *http.Request, method string) {
+	setCtxValue(r, ctx.MCPMethod, method)
+}
+
+func ctxGetMCPMethod(r *http.Request) string {
+	return ctx.GetMCPMethod(r)
+}
+
+func ctxSetMCPPrimitiveType(r *http.Request, primitiveType string) {
+	setCtxValue(r, ctx.MCPPrimitiveType, primitiveType)
+}
+
+func ctxGetMCPPrimitiveType(r *http.Request) string {
+	return ctx.GetMCPPrimitiveType(r)
+}
+
+func ctxSetMCPPrimitiveName(r *http.Request, name string) {
+	setCtxValue(r, ctx.MCPPrimitiveName, name)
+}
+
+func ctxGetMCPPrimitiveName(r *http.Request) string {
+	return ctx.GetMCPPrimitiveName(r)
+}
+
+func ctxSetJSONRPCErrorCode(r *http.Request, code int) {
+	setCtxValue(r, ctx.JSONRPCErrorCode, code)
+}
+
+func ctxGetJSONRPCErrorCode(r *http.Request) int {
+	return ctx.GetJSONRPCErrorCode(r)
+}
+
 var createOauthClientSecret = func() string {
 	secret := uuid.New()
 	return base64.StdEncoding.EncodeToString([]byte(secret))
